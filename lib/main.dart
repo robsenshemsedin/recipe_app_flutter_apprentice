@@ -45,7 +45,14 @@ class _MyHomePageState extends State<MyHomePage> {
           child: ListView.builder(
               itemCount: Recipe.samples.length,
               itemBuilder: (BuildContext context, int index) {
-                return recipeCard(Recipe.samples[index]);
+                return GestureDetector(
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return const Text('Detail page');
+                      }));
+                    },
+                    child: recipeCard(Recipe.samples[index]));
               })),
     );
   }
